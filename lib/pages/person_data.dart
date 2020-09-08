@@ -88,6 +88,7 @@ class _PersonDataState extends State<PersonData> {
                 ),
                 onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
             return Scaffold(
+              backgroundColor: Colors.grey[900],
               body: PhotoView(
                     imageProvider: NetworkImage(imagesList[index]),
                     backgroundDecoration: BoxDecoration(
