@@ -190,7 +190,7 @@ class _UploaderState extends State<Uploader> {
       // print(time.toString().substring(0,19));
       String tempTime = time.toString().substring(0,19);
       filePath = '${widget.person.uid}/$tempTime.png';
-      _storage = FirebaseStorage(storageBucket: 'gs://docs-ac473.appspot.com').ref().child(filePath);
+      _storage = FirebaseStorage(storageBucket: 'ADD FIREBASE STORAGE BUCKET LINK').ref().child(filePath);
       _uploadTask = _storage.putFile(widget.file);
     });
     // print('in add local file 1');
