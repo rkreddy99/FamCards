@@ -4,23 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:docs/pages/person.dart';
 
 class PersonTile extends StatelessWidget {
-
   final PersonDetails person;
-  PersonTile( {this.person} );
+  PersonTile({this.person});
 
   @override
   Widget build(BuildContext context) {
-
-    void _editPersonName () {
-      showModalBottomSheet(context: context, builder: (context) {
-        return Container(
-          decoration: BoxDecoration(
-            color: Colors.grey[900]
-          ),
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
-          child: UpdatePerson(person: person),
-        );
-      });
+    void _editPersonName() {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              decoration: BoxDecoration(color: Colors.grey[900]),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
+              child: UpdatePerson(person: person),
+            );
+          });
     }
 
     return Padding(
@@ -31,11 +29,17 @@ class PersonTile extends StatelessWidget {
         child: InkWell(
           splashColor: Colors.grey[700].withAlpha(60),
           onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => PersonData(person: person,))),
+              context,
+              MaterialPageRoute(
+                  builder: (context) => PersonData(
+                        person: person,
+                      ))),
           onLongPress: () => _editPersonName(),
           child: ListTile(
-            title: Text(person.name, style: TextStyle(color: Colors.orange[300]),),
+            title: Text(
+              person.name,
+              style: TextStyle(color: Colors.orange[300]),
+            ),
           ),
         ),
       ),

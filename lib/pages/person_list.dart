@@ -11,7 +11,6 @@ class PersonsList extends StatefulWidget {
 class _PersonsListState extends State<PersonsList> {
   @override
   Widget build(BuildContext context) {
-
     final persons = Provider.of<List<PersonDetails>>(context) ?? [];
     // print(' in person list');
     // print(persons);
@@ -19,7 +18,9 @@ class _PersonsListState extends State<PersonsList> {
     return ListView.builder(
       itemCount: persons.length,
       itemBuilder: (context, index) {
-        return PersonTile(person: persons[index],);
+        return PersonTile(
+          person: persons[index],
+        );
       },
     );
   }

@@ -12,29 +12,32 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   @override
   Widget build(BuildContext context) {
-
-    void _addPerson () {
-      showModalBottomSheet(context: context, builder: (context) {
-        return Container(
-          decoration: BoxDecoration(
-            color: Colors.grey[900]
-          ),
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
-          child: AddPerson(),
-        );
-      });
+    void _addPerson() {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              decoration: BoxDecoration(color: Colors.grey[900]),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
+              child: AddPerson(),
+            );
+          });
     }
 
     // String bgImage = data['isDayTime'] ? 'day.png' : 'night.png';
     return StreamProvider<List<PersonDetails>>.value(
-        value: DatabaseService().person,
-        child: Scaffold(
+      value: DatabaseService().person,
+      child: Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.purple[200],),
-          title: Text('Persons', style: TextStyle(color: Colors.purple[200]),),
+          iconTheme: IconThemeData(
+            color: Colors.purple[200],
+          ),
+          title: Text(
+            'Persons',
+            style: TextStyle(color: Colors.purple[200]),
+          ),
           backgroundColor: Colors.grey[800],
           automaticallyImplyLeading: false,
         ),
@@ -46,7 +49,10 @@ class _HomeState extends State<Home> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => _addPerson(),
-          child: Icon(Icons.person_add, color: Colors.purple[200],),
+          child: Icon(
+            Icons.person_add,
+            color: Colors.purple[200],
+          ),
           backgroundColor: Colors.grey[800],
         ),
       ),
